@@ -43,7 +43,7 @@ def exportexcel():
     filename = "static/excel/maildb.xlsx"
 
     writer = settings.pd.ExcelWriter(filename)
-    df.to_excel(writer, sheet_name='maildb')
+    df.to_excel(writer, sheet_name='maildb',index=False)
     writer.save()
 
     return settings.send_file(filename)
