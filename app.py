@@ -50,7 +50,6 @@ def exportexcel():
     return settings.send_file(filename)
 
 
-
 @app.route('/uploaddb', methods=["GET", "POST"])
 def uploaddb():
     if settings.request.method == "POST":
