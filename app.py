@@ -48,6 +48,17 @@ def exportexcel():
 
     return settings.send_file(filename)
 
+@app.route('/downblankdb', methods=['GET', 'POST'])
+def exportblankexcel():
+    datalist = []
+    datalist.append(['Name','Email'])
+    df = settings.pd.DataFrame(datalist)
+    filename = "static/excel/blankmaildb.xlsx"
+    writer = settings.pd.ExcelWriter(filename)
+    df.to_excel(writer, sheet_name='maildb',index=False)
+    writer.save()
+    return settings.send_file(filename)
+
 @app.route('/uploaddb', methods=["GET", "POST"])
 def uploaddb():
     if settings.request.method == "POST":
