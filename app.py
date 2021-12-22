@@ -35,7 +35,11 @@ def index():
 @app.route('/downdb', methods=['GET', 'POST'])
 def exportexcel():
     data = models.Maildb.query.all()
-    df = settings.pd.DataFrame(list(data))
+    datalist = []
+    datalist.append(['Name','Email'])
+    for d in data:
+        datalist.append([d.mdb_name,d.mdb_email])
+    df = settings.pd.DataFrame(datalist)
     filename = "static/excel/maildb.xlsx"
 
     writer = settings.pd.ExcelWriter(filename)
