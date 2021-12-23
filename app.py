@@ -36,12 +36,13 @@ def index():
 def exportexcel():
     data = models.Maildb.query.all()
     datalist = []
-    datalist.append(['Name','Email'])
+    # datalist.append(['Name','Email'])
     for d in data:
         datalist.append([d.mdb_name,d.mdb_email])
-    df = settings.pd.DataFrame(datalist)
-    filename = "static/excel/maildb.xlsx"
 
+    df = settings.pd.DataFrame(datalist)
+    df = df.rename({0: 'Name', 1: 'Email'}, axis=1)
+    filename = "static/excel/maildb.xlsx"
     writer = settings.pd.ExcelWriter(filename)
     df.to_excel(writer, sheet_name='maildb',index=False)
     writer.save()
