@@ -14,11 +14,6 @@ def index():
         print(email)
         subject = settings.request.form['subject']
         message = settings.request.form['message']
-        for e in email:
-            info = models.Mailer(name=name, email=e, subject=subject, message=message)
-        db.session.add(info)
-        db.session.commit()
-        # email = email.split(",")
         msg = settings.Message(
                     subject,
                     sender =app.config['MAIL_USERNAME'],
