@@ -10,14 +10,15 @@ import models
 def index():
     if settings.request.method == "POST":
         name = settings.request.form['name']
-        email = settings.request.form['email']
+        email = settings.request.form.getlist('email')
+        print(email)
         subject = settings.request.form['subject']
         message = settings.request.form['message']
-        info = models.Mailer(name=name, email=email, subject=subject, message=message)
+        for e in email:
+            info = models.Mailer(name=name, email=e, subject=subject, message=message)
         db.session.add(info)
         db.session.commit()
-        email = email.split(",")
-
+        # email = email.split(",")
         msg = settings.Message(
                     subject,
                     sender =app.config['MAIL_USERNAME'],
@@ -39,7 +40,6 @@ def exportexcel():
     # datalist.append(['Name','Email'])
     for d in data:
         datalist.append([d.mdb_name,d.mdb_email])
-
     df = settings.pd.DataFrame(datalist)
     df = df.rename({0: 'Name', 1: 'Email'}, axis=1)
     filename = "static/excel/maildb.xlsx"

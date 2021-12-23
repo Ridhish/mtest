@@ -1,53 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mailer</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-  <title>Mailer</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="static/assets/img/favicon.png" rel="icon" />
 
-  <!-- Favicons -->
-  <link href="static/assets/img/favicon.png" rel="icon">
- 
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link
+      href="static/assets/vendor/animate.css/animate.min.css"
+      rel="stylesheet"
+    />
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="static/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="static/assets/vendor/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="static/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="static/assets/vendor/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Vendor CSS Files -->
-  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet" />
+  </head>
 
-  <!-- Template Main CSS File -->
-  <link href="static/assets/css/style.css" rel="stylesheet">
+  <body>
+    <main id="main">
+      <!-- ======= Contact Section ======= -->
 
-</head>
-
-<body>
-
-  <main id="main">
-
-    <!-- ======= Contact Section ======= -->
-   
-    <section id="contact" class="contact">
-      <div class="container">
-
-  
+      <section id="contact" class="contact">
+        <div class="container">
           <div class="col-lg-8">
             <form action="/" method="post" role="form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="select" id="name" placeholder="Your Name" required>
+                  <input
+                    type="text"
+                    name="name"
+                    class="select"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                  />
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <select class="select" aria-label="Default select example" name="email">
+                  <select
+                    multiple
+                    class="select"
+                    aria-label="Default select example"
+                    name="email"
+                  >
                     <option value="#" active disabled>Select Email</option>
                     {% for i in getinfo1 %}
                     <option value="{{i.mdb_email}}">{{i.mdb_email}}</option>
@@ -56,37 +82,45 @@
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="subject"
+                  id="subject"
+                  placeholder="Subject"
+                  required
+                />
               </div>
               <div class="form-group mt-3">
                 {{ ckeditor.create(name='message') }}
               </div>
-              <br>
-                 <div class="text-center"><button class="btn btn-dark btn-sm" type="submit">Send Message</button></div>
+              <br />
+              <div class="text-center">
+                <button class="btn btn-dark btn-sm" type="submit">
+                  Send Message
+                </button>
+              </div>
             </form>
           </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+    <!-- End #main -->
 
+    <!-- ======= Footer ======= -->
 
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
- 
     <!-- Vendor JS Files -->
-  <script src="static/assets/vendor/aos/aos.js"></script>
-  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="static/assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="static/assets/vendor/php-email-form/validate.js"></script>
-  <script src="https://cdn.ckeditor.com/4.10.0/full-all/ckeditor.js"></script>
+    <script src="static/assets/vendor/aos/aos.js"></script>
+    <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="static/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="static/assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://cdn.ckeditor.com/4.10.0/full-all/ckeditor.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="static/assets/js/main.js"></script>
-
-</body>
-
+    <!-- Template Main JS File -->
+    <script src="static/assets/js/main.js"></script>
+  </body>
 </html>
